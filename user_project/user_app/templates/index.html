@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special Form</title>
+</head>
+<body>
+    <form action="/process" method=POST>
+        {% csrf_token %}
+    Email: <input type="text" name="email">
+    Password: <input type="text" name="password">
+    <input type="submit" value="Create User">
+    </form>
+    <p>{{request.session.new_user}}</p>
+    
+</body>
+</html>
