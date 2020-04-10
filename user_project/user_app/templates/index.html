@@ -9,10 +9,46 @@
     <form action="/process" method=POST>
         {% csrf_token %}
     Email: <input type="text" name="email">
-    Password: <input type="text" name="password">
+    Password: <input type="password" name="password">
     <input type="submit" value="Create User">
     </form>
-    <p>{{request.session.new_user}}</p>
     
+
+    <table>
+        <tr>
+            <th>Email</th>
+            <th>Password</th>
+        </tr>
+        {% for user in all_users %}
+        <tr>
+            <td>{{user.email}}</td>
+            <td>{{user.password}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+
+        <form action="/process_mess" method=POST>
+            {% csrf_token %}
+            Input Message: <input type="text" name="message">
+            Email: <input type="text" name='email'>
+            <input type="submit" value="Post Message">
+        </form>
+
+
+        <table>
+            <tr>
+                <th>Message</th>
+                <th>Poster</th>
+            </tr>
+            {% for mess in all_messages %}
+            <tr>
+                <td>{{mess.message}}</td>
+                <td>{{mess.poster.email}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+
 </body>
 </html>

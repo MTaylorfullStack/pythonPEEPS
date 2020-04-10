@@ -3,5 +3,6 @@ from . import views
 
 urlpatterns = [
     path('', views.index),
-    path('process', views.process)
+    path('process', views.process),
+    path('process_mess', views.mess)
 ]
