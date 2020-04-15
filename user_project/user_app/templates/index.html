@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Special Form</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
 <body>
     <form action="/process" method=POST>
@@ -12,20 +14,6 @@
     Password: <input type="password" name="password">
     <input type="submit" value="Create User">
     </form>
-    
-
-    <table>
-        <tr>
-            <th>Email</th>
-            <th>Password</th>
-        </tr>
-        {% for user in all_users %}
-        <tr>
-            <td>{{user.email}}</td>
-            <td>{{user.password}}</td>
-        </tr>
-        {% endfor %}
-    </table>
 
 
         <form action="/process_mess" method=POST>
@@ -35,19 +23,6 @@
             <input type="submit" value="Post Message">
         </form>
 
-
-        <table>
-            <tr>
-                <th>Message</th>
-                <th>Poster</th>
-            </tr>
-            {% for mess in all_messages %}
-            <tr>
-                <td>{{mess.message}}</td>
-                <td>{{mess.poster.email}}</td>
-            </tr>
-            {% endfor %}
-        </table>
 
 
 </body>

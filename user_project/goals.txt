@@ -1,0 +1,8 @@
+1) when a form is submitted, redirect to a new page s
+
+
+2) implemeting a like feature
+    I) many to many
+    II) count of likes 
+
+
