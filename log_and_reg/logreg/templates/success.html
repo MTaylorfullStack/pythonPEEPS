@@ -1,13 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Success!</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
-<body>
-    <h1>{{request.session.user}} has successfully logged in!</h1>
 
-    <a href="/logout">Logout</a>
+<body>
+    <div id='wrap'>
+
+        <h1>Welcome to {{request.session.user}}'s wall!</h1>
+        <h2>Write a Post:</h2>
+        <form action="/process_message" method=POST>
+            {% csrf_token %}
+            <input type="text" name='mess'>
+            <input type="submit" value="Post">
+        </form>
+
+        <div id='posts'>
+            {% for post in wall_messages %}
+            <div class='one_post'>
+                <p>{{post.message}}</p></br>
+                <p>By: {{post.poster.first_name}} {{post.poster.last_name}}</p>
+            </div>
+            {% endfor %}
+        </div>
+
+
+
+        <a href="/logout">Logout</a>
+
+    </div>
 </body>
+
 </html>

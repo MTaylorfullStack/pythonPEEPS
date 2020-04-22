@@ -1,0 +1,31 @@
+#wrap{
+    margin: 0px auto;
+    background-color: aquamarine;
+    width: 950px;
+    font-family: sans-serif;
+    padding: 25px;
+}
+
+.form-box{
+    display: inline-block;
+    background-color: burlywood;
+    width: 400px;
+    min-height: 500px;
+    padding: 25px;
+    vertical-align: top;
+    margin: 10px;
+}
+
+    .form-box form{
+        margin: 25px;
+    }
+    
+    .form-box input{
+        display: block;
+        margin: 10px;
+    }
+
+#errors {
+    color: red;
+    background-color: chartreuse;
+}    

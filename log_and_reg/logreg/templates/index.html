@@ -1,33 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Log and Reg</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
+
 <body>
-    <h1>Register:</h1>
-    
-    <form action="/register" method=POST>
-        {% csrf_token %}
-        First Name: <input type="text" name='fname'>
-        Last Name: <input type="text" name='lname'>
-        Email: <input type="text" name='email'>
-        Password: <input type="password" name='pw'>
-        Confirm PW: <input type="password" name='confpw'>
-        <input type="submit" value='Create User'>
-    </form>
+    <div id='wrap'>
 
-    <h1>Login</h1>
-    <form action="/login" method=POST>
-        {% csrf_token %}
-        Email: <input type="text" name='email'>
-        Password: <input type="password" name='pw'>
-        <input type="submit" value='Login'>
-    </form>
+        <div id='errors'>
+            {% for message in messages %}
+                <p>{{message}}</p><br>
+            {% endfor %}
+        </div>
+
+        <div class='form-box'>
+            <h1>Register:</h1>
+            <form action="/register" method=POST>
+                {% csrf_token %}
+                First Name: <input type="text" name='fname'>
+                Last Name: <input type="text" name='lname'>
+                Email: <input type="text" name='email'>
+                Password: <input type="password" name='pw'>
+                Confirm PW: <input type="password" name='confpw'>
+                <input type="submit" value='Create User'>
+            </form>
+        </div>
+
+        <div class='form-box'>
+            <h1>Login:</h1>
+            <form action="/login" method=POST>
+                {% csrf_token %}
+                Email: <input type="text" name='email'>
+                Password: <input type="password" name='pw'>
+                <input type="submit" value='Login'>
+            </form>
+        </div>
+
+    </div>
 
 
 
-    
+
 </body>
+
 </html>

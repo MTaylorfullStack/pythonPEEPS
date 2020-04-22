@@ -1,0 +1,19 @@
+1) Add validations to our log and reg:
+    email must be valid email
+    password must be > 8 characters
+    names must be greater than two characters
+
+2) Add 'Wall_Post' functionality
+    - users can write 'wall posts' from the success page
+    - wall posts will appear on a feed on the 'success' page
+
+3) Comments
+    - users can comment on wall posts
+
+4) User Profile
+    - clicking on a wall post or comment 'poster' brings you to a profile page
+    - Profile Page contains all users posts and comments
+    
+
+
+
