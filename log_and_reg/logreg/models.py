@@ -11,10 +11,10 @@ class UserManager(models.Manager):
             errors['name'] = "Your name must be at least 2 characters"
         if not email_checker.match(postdata['email']):
             errors['email'] = 'Email must be valid'
+        if postdata['pw'] != postdata['confpw']:
+            errors['pw'] = 'Password and Confirm Password do not match'
         return errors
         
-
-
 
 class User(models.Model):
     first_name = models.CharField(max_length=50)
@@ -26,4 +26,13 @@ class User(models.Model):
 class Wall_Message(models.Model):
     message = models.CharField(max_length=255)
     poster = models.ForeignKey(User, related_name='user_messages', on_delete=models.CASCADE)
+    user_likes = models.ManyToManyField(User, related_name='liked_posts')
+
+class Comment(models.Model):
+    comment = models.CharField(max_length=255)
+    poster = models.ForeignKey(User, related_name='user_comments', on_delete=models.CASCADE)
+    wall_message = models.ForeignKey(Wall_Message, related_name="post_comments", on_delete=models.CASCADE)
+
+
+
 # Create your models here.

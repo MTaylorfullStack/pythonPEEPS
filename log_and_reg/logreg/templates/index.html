@@ -11,12 +11,13 @@
 
 <body>
     <div id='wrap'>
-
-        <div id='errors'>
-            {% for message in messages %}
-                <p>{{message}}</p><br>
-            {% endfor %}
-        </div>
+        {% if messages %}
+            <div id='errors'>
+                {% for message in messages %}
+                    <p>- {{message}} -</p>
+                {% endfor %}
+            </div>
+        {% endif %}
 
         <div class='form-box'>
             <h1>Register:</h1>

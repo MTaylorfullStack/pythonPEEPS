@@ -26,6 +26,36 @@
     }
 
 #errors {
+    text-align: center;
     color: red;
-    background-color: chartreuse;
-}    
+    background-color: black;
+    padding: 20px;
+    height: 100px;
+}
+
+#posts {
+    background-color: burlywood;
+    padding: 25px;
+    margin: 25px;
+}
+
+.one_post {
+    background-color: teal;
+    padding: 25px;
+    margin: 25px;
+    min-height: 100px;
+}
+
+.post{
+    font-size: 16pt;
+    text-align: center;
+}
+
+.poster {
+    font-size: 11pt;
+    text-align: center;
+}
+
+#write{
+    text-align: center;
+}
