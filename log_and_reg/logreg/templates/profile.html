@@ -16,5 +16,14 @@
     {% for comment in user.user_comments.all %}
     <p>{{comment.comment}}</p>
     {% endfor %}
+
+    Edit User Form:
+    <form action="/edit/{{user.id}}" method=POST>
+        {% csrf_token %}
+       First Name: <input type="text" name='fname' value={{user.first_name}}>
+       Last Name: <input type="text" name='lname' value={{user.last_name}}>
+       Email: <input type="text" name='email' value={{user.email}}>
+       <input type="submit">
+    </form>
 </body>
 </html>
