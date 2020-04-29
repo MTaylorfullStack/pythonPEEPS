@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit User</title>
+</head>
+<body>
+    <h1>Edit Form</h1>
+    <form action="/process_edit/{{edit_mess.id}}" method=POST>
+        {% csrf_token %}
+    <input type="text" name='message' value={{edit_mess.message}}>
+    <input type="submit" value='Edit Message'>
+    </form>
+</body>
+</html>

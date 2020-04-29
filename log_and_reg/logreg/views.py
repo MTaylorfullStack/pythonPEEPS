@@ -73,15 +73,19 @@ def add_like(request, id):
     liked_message.user_likes.add(user_liking)
     return redirect('/success')
 
-def delete_comment(request, id):
-    destroyed = Comment.objects.get(id=id)
-    destroyed.delete()
+def destroy(request, id):
+    deleted_post = Wall_Message.objects.get(id=id)
+    deleted_post.delete()
     return redirect('/success')
 
-def edit(request, id):
-    edit_user = User.objects.get(id=id)
-    edit_user.first_name = request.POST['fname']
-    edit_user.last_name = request.POST['lname']
-    edit_user.email = request.POST['email']
-    edit_user.save()
+def edit_page(request, id):
+    context = {
+        'edit_mess': Wall_Message.objects.get(id=id)
+    }
+    return render(request, 'edit.html', context)
+
+def process_edit(request, id):
+    mess_edit = Wall_Message.objects.get(id=id)
+    mess_edit.message = request.POST['message']
+    mess_edit.save()
     return redirect('/success')

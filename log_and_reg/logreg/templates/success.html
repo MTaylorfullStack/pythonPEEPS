@@ -26,6 +26,11 @@
         <div id='posts'>
             {% for post in wall_messages %}
             <div class='one_post'>
+                {% if request.session.id is post.poster.id %}
+                <a href="/delete/{{post.id}}">Delete</a>
+                <a href="/edit/{{post.id}}">Edit</a>
+                {% endif %}
+                {{post.id}}
                 <p class='post'>{{post.message}}</p>
                 <p class='poster'>By: <a href="/user_profile/{{post.poster.id}}">{{post.poster.first_name}} {{post.poster.last_name}}</a></p>
                 <a href="/like/{{post.id}}">Like Post</a>
@@ -38,7 +43,6 @@
                 {% for comment in post.post_comments.all %}
                     <p>{{comment.comment}}</p>
                     <p>poster: {{comment.poster.first_name}} {{comment.poster.last_name}}</p>
-                    <a href="/delete/{{comment.id}}">Delete</a>
                 {% endfor %}
             </div>
             {% endfor %}
