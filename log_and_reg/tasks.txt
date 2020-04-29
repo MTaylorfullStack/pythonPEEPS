@@ -1,14 +1,4 @@
-1) Comments
-    - users can post comments on wall posts
+Further Modularize Our Code!
 
-2) User Profile
-    - clicking on a wall post or comment 'poster' brings you to a profile page
-    - Profile Page contains all users posts and comments
-
-3) Likes
-    - users can like posts
-    - number of likes is displayed with every post
-    
-
-
-
+All Wall_Message functionality should be on a
+seperate Django app.

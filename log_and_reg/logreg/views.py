@@ -14,6 +14,7 @@ def success(request):
         'wall_messages': Wall_Message.objects.all()
     }
     return render(request, 'success.html', context)
+
 ## Logging in and registering
 
 def register(request):

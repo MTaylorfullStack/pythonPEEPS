@@ -16,5 +16,6 @@ Including another URLconf
 from django.urls import path, include
 
 urlpatterns = [
+    path('wall', include('wall_app.urls')),
     path('', include('logreg.urls')),
 ]
